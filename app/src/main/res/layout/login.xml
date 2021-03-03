@@ -10,8 +10,43 @@
         android:layout_height="wrap_content"
         android:text="@string/mensagem_inicial" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/usuario"/>
+
+    <EditText
+        android:id="@+id/campo_usario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/texto_usuario"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/senha" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/texto_senha"/>
+
+    <Button
+        android:id="@+id/botao_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/botao_login" />
+
     <ImageView
         android:id="@+id/imagem_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
 </LinearLayout>

@@ -1,4 +1,10 @@
 <resources>
+    <!--login.xml-->
     <string name="app_name">LMSApp</string>
     <string name="mensagem_inicial">Bem-vindo ao LMS</string>
+    <string name="usuario">Usuario</string>
+    <string name="texto_usuario">Digite o seu usuario!</string>
+    <string name="senha">Senha</string>
+    <string name="texto_senha">Digite sua senha!</string>
+    <string name="botao_login">Login</string>
 </resources>
