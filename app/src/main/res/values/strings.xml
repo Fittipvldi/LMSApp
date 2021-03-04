@@ -7,4 +7,7 @@
     <string name="senha">Senha</string>
     <string name="texto_senha">Digite sua senha!</string>
     <string name="botao_login">Login</string>
+    <string name="action_bar">Buscar</string>
+    <string name="action_atualizar">Atualizar</string>
+    <string name="action_config">Configurações</string>
 </resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_buscar"
+        android:title="@string/action_bar"
+        android:icon="@drawable/ic_buscar_black"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/action_atualizar"
+        android:title="@string/action_atualizar"
+        android:icon="@drawable/ic_atualizar_black"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/action_config"
+        android:title="@string/action_config"
+        app:showAsAction="never"
+        />
+</menu>
+
+<!--icons from https://github.com/google/material-design-icons-->
