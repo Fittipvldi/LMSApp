@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import kotlinx.android.synthetic.main.login.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 class TelaInicialActivity : DebugActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,8 +18,11 @@ class TelaInicialActivity : DebugActivity() {
         val nome = params?.getString("nome")
         Toast.makeText(this, "Bem-vindo $nome", Toast.LENGTH_SHORT).show()
 
+        setSupportActionBar(toolbar)
+
         supportActionBar?.title = "Disciplinas"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
