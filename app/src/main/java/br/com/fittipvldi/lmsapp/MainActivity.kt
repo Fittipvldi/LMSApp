@@ -3,17 +3,23 @@ package br.com.fittipvldi.lmsapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.login.*
+import kotlinx.android.synthetic.main.login.botao_login
+import kotlinx.android.synthetic.main.login.campo_usario
+import kotlinx.android.synthetic.main.login.imagem_login
+import kotlinx.android.synthetic.main.login_constraint.*
 
 class MainActivity : DebugActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login)
+        setContentView(R.layout.login_constraint)
 
         imagem_login.setImageResource(R.drawable.imagem_login)
 
         botao_login.setOnClickListener {
+            progress_login.visibility = View.VISIBLE
             Toast.makeText(this, "Clicado!", Toast.LENGTH_SHORT).show()
 
             val nomeUsuario = campo_usario.text.toString()
@@ -25,5 +31,10 @@ class MainActivity : DebugActivity() {
 
             startActivity(intent)
         }
+    }
+
+    override fun onResume() {
+        super.onRestart()
+        progress_login.visibility = View.GONE
     }
 }
