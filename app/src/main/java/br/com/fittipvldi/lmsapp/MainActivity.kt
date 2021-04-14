@@ -34,7 +34,7 @@ class MainActivity : DebugActivity() {
     }
 
     override fun onResume() {
-        super.onRestart()
+        super.onResume()
         progress_login.visibility = View.GONE
     }
 }

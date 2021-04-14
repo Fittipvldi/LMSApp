@@ -10,4 +10,6 @@
     <string name="action_bar">Buscar</string>
     <string name="action_atualizar">Atualizar</string>
     <string name="action_config">Configurações</string>
+    <string name="nav_open">Abrir</string>
+    <string name="nav_close">Fechar</string>
 </resources>
