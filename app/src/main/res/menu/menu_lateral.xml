@@ -2,18 +2,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_disciplinas"
-            android:icon="@drawable/ic_disciplina_black"
-            android:title="Disciplinas"
+            android:id="@+id/nav_projetos"
+            android:icon="@android:drawable/ic_media_next"
+            android:title="Projetos"
             android:checked="true"/>
         <item
-            android:id="@+id/nav_forum"
-            android:icon="@drawable/ic_forum_black"
-            android:title="Fórum"/>
+            android:id="@+id/nav_relatorios"
+            android:icon="@android:drawable/ic_menu_agenda"
+            android:title="Relatórios"/>
+
+        <item
+            android:id="@+id/nav_sobre"
+            android:icon="@android:drawable/ic_menu_more"
+            android:title="Sobre" />
+
         <item
             android:id="@+id/nav_localizacao"
             android:icon="@android:drawable/ic_menu_directions"
             android:title="Localização"/>
+
+        <item
+            android:id="@+id/nav_sair"
+            android:icon="@android:drawable/ic_menu_revert"
+            android:title="Sair"
+            />
     </group>
 
 </menu>

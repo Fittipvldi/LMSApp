@@ -19,17 +19,23 @@ class MainActivity : DebugActivity() {
         imagem_login.setImageResource(R.drawable.imagem_login)
 
         botao_login.setOnClickListener {
-            progress_login.visibility = View.VISIBLE
-            Toast.makeText(this, "Clicado!", Toast.LENGTH_SHORT).show()
+            val user = "aluno"
+            val password = "impacta"
+            val nomeUsuario = campo_usuario.text.toString()
+            val passwordUsuario = campo_password.text.toString()
 
-            val nomeUsuario = campo_usario.text.toString()
+            if(nomeUsuario == user && passwordUsuario == password) {
+                Toast.makeText(this, "Login efetuado", Toast.LENGTH_SHORT).show()
 
-            val intent = Intent(this, TelaInicialActivity::class.java)
-            val params = Bundle()
-            params.putString("nome", nomeUsuario)
-            intent.putExtras(params)
+                val intent = Intent(this, TelaInicialActivity::class.java)
+                val params = Bundle()
+                params.putString("nome", nomeUsuario)
+                intent.putExtras(params)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Usuário ou senha incorretos", Toast.LENGTH_SHORT).show()
+            }
 
-            startActivity(intent)
         }
     }
 
