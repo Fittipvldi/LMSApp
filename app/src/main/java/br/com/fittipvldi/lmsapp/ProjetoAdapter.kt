@@ -9,6 +9,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
 class ProjetoAdapter(
 
@@ -27,7 +28,9 @@ class ProjetoAdapter(
             cardNome = view.findViewById(R.id.card_nome)
             cardImage = view.findViewById(R.id.card_image)
             cardProgress = view.findViewById(R.id.card_progress)
-            cardView = view.findViewById(R.id.card_progress)
+            cardView = view.findViewById(R.id.card_projetos)
+
+
         }
 
     }
@@ -48,7 +51,18 @@ class ProjetoAdapter(
         holder.cardNome.text = projeto.nome
         holder.cardProgress.visibility = View.VISIBLE
 
+        val context = holder.itemView.context
+        Picasso.with(context).load(projeto.foto).fit().into(holder.cardImage,
+            object: com.squareup.picasso.Callback {
+                override fun onSuccess() {
+                    holder.cardProgress.visibility = View.GONE
+                }
 
+                override fun onError() {
+                    holder.cardImage.setImageResource(R.drawable.imagem_login)
+                    holder.cardProgress.visibility = View.GONE
+                }
+            })
 
     }
 

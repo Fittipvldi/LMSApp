@@ -19,8 +19,11 @@ class MainActivity : DebugActivity() {
         imagem_login.setImageResource(R.drawable.imagem_login)
 
         botao_login.setOnClickListener {
+            progress_login.visibility = View.VISIBLE
+
             val user = "aluno"
             val password = "impacta"
+
             val nomeUsuario = campo_usuario.text.toString()
             val passwordUsuario = campo_password.text.toString()
 

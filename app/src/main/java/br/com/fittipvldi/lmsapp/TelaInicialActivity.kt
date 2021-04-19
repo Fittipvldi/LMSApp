@@ -1,6 +1,7 @@
 package br.com.fittipvldi.lmsapp
 
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -14,6 +15,9 @@ import kotlinx.android.synthetic.main.activity_tela_inicial.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private val context: Context get() = this
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_inicial)

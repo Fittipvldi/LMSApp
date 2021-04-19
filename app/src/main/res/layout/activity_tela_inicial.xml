@@ -30,7 +30,9 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/menu_lateral_cabecalho"
-        app:menu="@menu/menu_lateral"/>
+        app:menu="@menu/menu_lateral">
+
+    </com.google.android.material.navigation.NavigationView>
 
     
 </androidx.drawerlayout.widget.DrawerLayout>
