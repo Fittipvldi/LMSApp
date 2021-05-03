@@ -3,8 +3,12 @@ package br.com.fittipvldi.lmsapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.view.View
 import android.widget.Toast
+import android.widget.ToggleButton
 import kotlinx.android.synthetic.main.login.*
 import kotlinx.android.synthetic.main.login.botao_login
 import kotlinx.android.synthetic.main.login.campo_usario
@@ -15,8 +19,8 @@ class MainActivity : DebugActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_constraint)
-
-        imagem_login.setImageResource(R.drawable.imagem_login)
+        this.supportActionBar?.hide()
+        imagem_login.setImageResource(R.drawable.logo_bullest_blue)
 
         botao_login.setOnClickListener {
             progress_login.visibility = View.VISIBLE
@@ -38,7 +42,16 @@ class MainActivity : DebugActivity() {
             } else {
                 Toast.makeText(this, "Usuário ou senha incorretos", Toast.LENGTH_SHORT).show()
             }
+        }
 
+        val showHidePassword: ToggleButton = findViewById(R.id.toggleButton)
+        showHidePassword.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked) {
+                campo_password.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            } else {
+                campo_password.transformationMethod = PasswordTransformationMethod.getInstance()
+
+            }
         }
     }
 
@@ -46,4 +59,6 @@ class MainActivity : DebugActivity() {
         super.onResume()
         progress_login.visibility = View.GONE
     }
+
+
 }
