@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_projetos"
+    android:layout_margin="6dp"
+    app:cardElevation="3dp"
+    app:cardCornerRadius="2dp"
+    android:foreground="?attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="5dp">
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@color/button_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/card_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="#ABABAE" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/card_nome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_marginStart="8dp"
+                android:text="Projeto nome"
+                android:textAlignment="textStart"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/frameLayout"
+                tools:layout_editor_absoluteY="1dp" />
+
+            <TextView
+                android:id="@+id/card_id"
+                android:layout_width="wrap_content"
+                android:layout_height="17dp"
+                android:layout_marginStart="16dp"
+                android:text="Código: "
+                app:layout_constraintStart_toEndOf="@+id/frameLayout"
+                app:layout_constraintTop_toBottomOf="@+id/card_nome" />
+
+
+            <TextView
+                android:id="@+id/card_id_codigo"
+                android:layout_width="69dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/card_id"
+                app:layout_constraintTop_toBottomOf="@+id/card_nome" />
+
+            <TextView
+                android:id="@+id/card_cliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Cliente: Bullest"
+                app:layout_constraintStart_toEndOf="@+id/frameLayout"
+                app:layout_constraintTop_toBottomOf="@+id/card_id_codigo" />
+
+            <ProgressBar
+                android:id="@+id/card_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.551" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

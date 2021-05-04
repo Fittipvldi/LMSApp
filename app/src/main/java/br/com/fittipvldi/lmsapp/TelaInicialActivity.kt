@@ -1,19 +1,23 @@
 package br.com.fittipvldi.lmsapp
 
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_tela_inicial.*
-import kotlinx.android.synthetic.main.login.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private val context: Context get() = this
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_inicial)
@@ -24,10 +28,27 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
         setSupportActionBar(toolbar)
 
-        supportActionBar?.title = "Disciplinas"
+        supportActionBar?.title = "Projetos"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         confuguraMenuLateral()
+
+        recycler_projetos?.layoutManager = LinearLayoutManager(this)
+
+    }
+
+    private var projetos = listOf<Projeto>()
+
+    override fun onResume() {
+        super.onResume()
+        projetos = ProjetoService.getProjetos()
+        recycler_projetos?.adapter = ProjetoAdapter(projetos) {
+            onClickProjeto(it)
+        }
+    }
+
+    fun onClickProjeto(projeto: Projeto) {
+        Toast.makeText(this, "Clicou projeto ${projeto.nome}", Toast.LENGTH_SHORT).show()
     }
 
     private fun confuguraMenuLateral() {
@@ -47,12 +68,33 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_disciplinas -> {
-                Toast.makeText(this, "Clicou em Disciplinas", Toast.LENGTH_LONG).show()
+            R.id.nav_projetos -> {
+                val intent = Intent(this, TelaInicialActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(this, "Clicou em Projetos", Toast.LENGTH_LONG).show()
             }
-            R.id.nav_forum -> {
-                Toast.makeText(this, "Clicou em forum", Toast.LENGTH_LONG).show()
+            R.id.nav_relatorios -> {
+                val intent = Intent(this, RelatoriosActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(this, "Clicou em Relatórios", Toast.LENGTH_LONG).show()
             }
+            R.id.nav_sobre -> {
+                val intent = Intent(this, SobreActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(this, "Clicou em Sobre", Toast.LENGTH_LONG).show()
+            }
+            R.id.nav_localizacao -> {
+                val intent = Intent(this, LocalizacaoActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(this, "Clicou em Localização", Toast.LENGTH_LONG).show()
+            }
+
+            R.id.nav_sair -> {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(this, "Clicou em Sair", Toast.LENGTH_LONG).show()
+            }
+
         }
 
         layout_menu_lateral.closeDrawer(GravityCompat.START)

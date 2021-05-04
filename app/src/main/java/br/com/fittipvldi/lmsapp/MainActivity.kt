@@ -3,8 +3,12 @@ package br.com.fittipvldi.lmsapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.view.View
 import android.widget.Toast
+import android.widget.ToggleButton
 import kotlinx.android.synthetic.main.login.*
 import kotlinx.android.synthetic.main.login.botao_login
 import kotlinx.android.synthetic.main.login.campo_usario
@@ -15,21 +19,39 @@ class MainActivity : DebugActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_constraint)
-
-        imagem_login.setImageResource(R.drawable.imagem_login)
+        this.supportActionBar?.hide()
+        imagem_login.setImageResource(R.drawable.logo_bullest_blue)
 
         botao_login.setOnClickListener {
             progress_login.visibility = View.VISIBLE
-            Toast.makeText(this, "Clicado!", Toast.LENGTH_SHORT).show()
 
-            val nomeUsuario = campo_usario.text.toString()
+            val user = "aluno"
+            val password = "impacta"
 
-            val intent = Intent(this, TelaInicialActivity::class.java)
-            val params = Bundle()
-            params.putString("nome", nomeUsuario)
-            intent.putExtras(params)
+            val nomeUsuario = campo_usuario.text.toString()
+            val passwordUsuario = campo_password.text.toString()
 
-            startActivity(intent)
+            if(nomeUsuario == user && passwordUsuario == password) {
+                Toast.makeText(this, "Login efetuado", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this, TelaInicialActivity::class.java)
+                val params = Bundle()
+                params.putString("nome", nomeUsuario)
+                intent.putExtras(params)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Usuário ou senha incorretos", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val showHidePassword: ToggleButton = findViewById(R.id.toggleButton)
+        showHidePassword.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked) {
+                campo_password.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            } else {
+                campo_password.transformationMethod = PasswordTransformationMethod.getInstance()
+
+            }
         }
     }
 
@@ -37,4 +59,6 @@ class MainActivity : DebugActivity() {
         super.onResume()
         progress_login.visibility = View.GONE
     }
+
+
 }

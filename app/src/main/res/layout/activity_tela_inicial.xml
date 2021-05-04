@@ -11,9 +11,16 @@
     
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <include layout="@layout/toolbar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_projetos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"/>
+
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -23,6 +30,9 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/menu_lateral_cabecalho"
-        app:menu="@menu/menu_lateral"/>
+        app:menu="@menu/menu_lateral">
+
+    </com.google.android.material.navigation.NavigationView>
+
     
 </androidx.drawerlayout.widget.DrawerLayout>
